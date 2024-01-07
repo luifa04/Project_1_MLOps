@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.decomposition import TruncatedSVD
 from sklearn.metrics.pairwise import linear_kernel
 from fastapi import HTTPException
 
@@ -15,8 +16,13 @@ tfidf = TfidfVectorizer(stop_words='english')
 # Apply TF-IDF to the 'review' column
 tfidf_matrix = tfidf.fit_transform(df2['review'])
 
+# Apply Truncated SVD to reduce dimensionality
+svd = TruncatedSVD(n_components=100)  # Adjust the number of components as needed
+tfidf_matrix_svd = svd.fit_transform(tfidf_matrix)
+
 # Calculate cosine similarity using linear_kernel
 cosine_similarity = linear_kernel(tfidf_matrix, tfidf_matrix)
+
 
 def recommend_game(game_id: int):
     try:

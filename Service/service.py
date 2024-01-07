@@ -1,4 +1,3 @@
-import pandas as pd
 
 GENRE_COLUMN = 'genre'
 PLAYTIME_COLUMN = 'playtime_forever'

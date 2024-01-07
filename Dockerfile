@@ -11,7 +11,7 @@ COPY requirements.txt ./requirements.txt
 RUN pip install -r requirements.txt
 
 # Copia todo lo del anfitrion (clonado de github)
-COPY /Data main.py service.py service_item_item.py /app/
+COPY main.py service.py service_item_item.py /Data /app/
 
 # Argumentos para el comando entrypoint
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]   

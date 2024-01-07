@@ -1,8 +1,8 @@
 from   fastapi import FastAPI, Path
 from   fastapi.responses import HTMLResponse
 import pandas as pd
-from   service import generate_api_homepage,get_max_playtime_year,get_user_with_max_playtime,get_top_recommended_games,get_worst_developers,sentiment_analysis
-from   service_item_item import recommend_game
+from   Service.service import generate_api_homepage,get_max_playtime_year,get_user_with_max_playtime,get_top_recommended_games,get_worst_developers,sentiment_analysis
+from   Service.service_item_item import recommend_game
 
 
 app=FastAPI(debug=True)

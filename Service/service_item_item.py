@@ -3,9 +3,12 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import TruncatedSVD
 from sklearn.metrics.pairwise import linear_kernel
 from fastapi import HTTPException
+import gzip
 
 # Load the DataFrame
-df2 = pd.read_parquet('Data/Data_ML.parquet')
+with gzip.open('Data/Data_ML.csv.gz', 'rt', encoding='utf-8') as f:     
+    df2 = pd.read_csv(f)
+#df2 = pd.read_parquet('Data/Data_ML.parquet')
 
 # Fill missing values in the 'review' column
 df2 = df2.fillna("")

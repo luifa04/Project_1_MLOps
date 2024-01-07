@@ -130,7 +130,7 @@ def get_user_with_max_playtime(df, genre: str):
     - genre (str): The genre to filter.
 
     Returns:
-    - dict: {"Usuario con más horas jugadas para Género X": user_id, "Horas jugadas": [{"Año": year, "Horas": total_playtime}, ...]}
+    - dict: {"User with the most playtime for Genre X": user_id, "Playtime": [{"Year": year, "Hours": total_playtime}, ...]}
     """
     try: 
         genre = genre.capitalize()
@@ -147,13 +147,14 @@ def get_user_with_max_playtime(df, genre: str):
         playtime_by_year = user_df.groupby(YEAR_COLUMN)[PLAYTIME_COLUMN].sum().reset_index()
 
         result = {
-            "Usuario con más horas jugadas para Género {}".format(genre): user_with_max_playtime,
-            "Horas jugadas": playtime_by_year.to_dict(orient='records'),
+            "User with the most playtime for Genre {}".format(genre): user_with_max_playtime,
+            "Playtime": playtime_by_year.to_dict(orient='records'),
         }
 
         return result
     except KeyError as e:
         return {"Error": str(e)}
+
 
 
 

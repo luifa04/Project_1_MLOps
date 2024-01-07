@@ -29,7 +29,7 @@ def PlayTimeGenre(genre: str  = Path(..., title="Specify the genre", description
 
 @app.get('/user-for-genre/{genre}',
          tags=['General Inquiries'])
-def UserForGenre(genre: str = Path(..., title="Specify the genre", description="Specify the genre in the path", example="adventure")):
+def UserForGenre(genre: str = Path(..., title="Specify the genre", description="Specify the genre in the path", example="Racing")):
     genre = genre.capitalize()
     result = get_user_with_max_playtime(df1, genre)
 
@@ -50,7 +50,7 @@ def UsersRecommend(year: int = Path(..., title="Specify the year", description="
 
 @app.get('/users-worst-developer/{year}',
          tags=['General Inquiries'])
-def UsersWorstDeveloper(year: str = Path(..., title="Specify the year", description="Specify the year in the path", example="2012")):
+def UsersWorstDeveloper(year: str = Path(..., title="Specify the year", description="Specify the year in the path", example="2014")):
     result = get_worst_developers(df2, year)
 
     if result == -1:

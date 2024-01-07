@@ -2,14 +2,16 @@ from   fastapi import FastAPI, Path
 from   fastapi.responses import HTMLResponse
 import pandas as pd
 from   Service.service import generate_api_homepage,get_max_playtime_year,get_user_with_max_playtime,get_top_recommended_games,get_worst_developers,sentiment_analysis
+from   Service.service_user_item import recommend_user_game
 from   Service.service_item_item import recommend_game
-
+import gzip
 
 app=FastAPI(debug=True)
 
-df1 = pd.read_parquet('Data/Games_Items_final.parquet')
-df2 = pd.read_parquet('Data/Games_Reviews_final.parquet')
-
+with gzip.open('Data/Games_Items_final.csv.gz', 'rt', encoding='utf-8') as f:     
+    df1 = pd.read_csv(f)
+#df1 = pd.read_parquet('./Data/Games_Items_final.parquet')
+df2 = pd.read_parquet('./Data/Games_Reviews_final.parquet')
 
 @app.get('/', tags=['Home'], response_class=HTMLResponse)
 def message():
@@ -73,3 +75,10 @@ def SentimentAnalysis(developer: str = Path(..., title="Specify the developer", 
          tags=['Recommendation'])
 def recommendation_game(game_id: int = Path(..., title="Specify the Game-ID", description="Specify the Game-ID in the path", example="220")):
     return recommend_game(game_id)
+
+
+@app.get("/recommendation_user_game/{user_id}",
+         tags=['Recommendation'])
+async def get_user_game_recommendations(user_id: str = Path(..., title="Specify the User-ID", description="Specify the User-ID in the path", example="rotflmaoman")):
+    recommendations = recommend_user_game(user_id)
+    return {"user_id": user_id, "recommended_games": recommendations}

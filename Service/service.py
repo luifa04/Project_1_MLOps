@@ -82,7 +82,9 @@ def generate_api_homepage():
     </header>
     <p>Welcome to the Steam Games API, where you can make various queries about the gaming platform.</p>
     <p>INSTRUCTIONS:</p>
-    <p>Type <span>/docs</span> after the current URL to interact with the API. Or <a href="http://127.0.0.1:8000/docs">click here</a> to view the API documentation.</p>
+    <p>1- To access the lightweight version of the API deployed at <a href="https://project-10-mlops.onrender.com/docs" target="_blank">this link</a>.</p>
+    <p>2- If you have locally hosted the API, access it <a href="http://127.0.0.1:8000/docs" target="_blank">here</a>.</p>
+    <p>3- Type <span>/docs</span> to interact with the API.</p>
     <p>Visit my profile on <a href="https://www.linkedin.com/in/mateo-lopez-ba06861b3/" target="_blank"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-blue?style=flat-square&logo=linkedin"></a></p>
     <p>Project development is on <a href="https://github.com/luifa04/Project1_MLOps" target="_blank"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-black?style=flat-square&logo=github"></a></p>
     <footer>

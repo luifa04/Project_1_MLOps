@@ -5,7 +5,7 @@ from sklearn.metrics.pairwise import linear_kernel
 from fastapi import HTTPException
 
 # Load the DataFrame
-df2 = pd.read_parquet('./Data/Data_ML.parquet')
+df2 = pd.read_parquet('Data/Data_ML.parquet')
 
 # Fill missing values in the 'review' column
 df2 = df2.fillna("")

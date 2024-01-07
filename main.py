@@ -7,8 +7,8 @@ from   service_item_item import recommend_game
 
 app=FastAPI(debug=True)
 
-df1 = pd.read_parquet('./Data/Games_Items_final.parquet')
-df2 = pd.read_parquet('./Data/Games_Reviews_final.parquet')
+df1 = pd.read_parquet('Data/Games_Items_final.parquet')
+df2 = pd.read_parquet('Data/Games_Reviews_final.parquet')
 
 
 @app.get('/', tags=['Home'], response_class=HTMLResponse)

@@ -26,7 +26,34 @@ This project involves creating an API that utilizes a recommendation model for S
 
 We perform an ETL process where we extract data from different sources, transform it according to the project's needs, and load it into a final destination for analysis and later use. The primary tools used were Python, Pandas, Scikit-Learn, and FastAPI.
 
-### 2. API Deployment:
+### 2. Feature Engineering:
+
+As requested for this project, sentiment analysis was applied to user reviews. A new column named 'sentiment_analysis' was created to replace the column containing reviews, classifying the sentiments of the comments on a scale of 0 (bad), 1 (neutral or no review), to 2 (positive). We used NLTK for basic sentiment analysis, assigning a numeric value to the text to represent whether the sentiment expressed is negative, neutral, or positive.
+
+### 3. EDA (Exploratory Data Analysis):
+
+We conduct an EDA process where we explore and analyze the data thoroughly to obtain insights, identify patterns, trends, and relationships, aiming to provide a foundation for creating our ML model. The tools used were Numpy, Pandas, Matplotlib, Seaborn, Wordcloud, and NLTK.
+
+## 4. Machine Learning Model:
+
+We implemented a Machine Learning model to generate game recommendations, utilizing algorithms and techniques such as cosine similarity and Scikit-Learn. The aim is to provide personalized and accurate recommendations based on the tastes and preferences of each user. If it's an item-item recommendation system:
+
+- **recomendacion_juego (Product ID):** By entering the product ID ('id), we should receive a list of 5 recommended games similar to the input.
+
+  Example of usage: `70`
+
+If it's a user-item recommendation system:
+
+- **recomendacion_usuario (User ID):** By entering the user ID ('user_id'), we should receive a list of 5 recommended games for that user.
+
+  Example of usage: `76561198030567998`
+
+The tool used was Scikit-Learn with libraries such as TfidfVectorizer, linear_kernel, cosine_similarity. These functionalities are also accessible in the API.
+
+
+
+
+### 5. API Deployment:
 
 We create an API using the FastAPI module in Python, implementing 5 functions that can be queried:
 
@@ -44,29 +71,8 @@ We create an API using the FastAPI module in Python, implementing 5 functions th
 
 - **recomendacion_usuario:** Receives the user id as a parameter and returns a list with 5 games recommended for that user, considering similarities between users.
 
-### 3. EDA (Exploratory Data Analysis):
 
-We conduct an EDA process where we explore and analyze the data thoroughly to obtain insights, identify patterns, trends, and relationships, aiming to provide a foundation for creating our ML model. The tools used were Numpy, Pandas, Matplotlib, Seaborn, Wordcloud, and NLTK.
 
-### 4. Feature Engineering:
-
-As requested for this project, sentiment analysis was applied to user reviews. A new column named 'sentiment_analysis' was created to replace the column containing reviews, classifying the sentiments of the comments on a scale of 0 (bad), 1 (neutral or no review), to 2 (positive). We used NLTK for basic sentiment analysis, assigning a numeric value to the text to represent whether the sentiment expressed is negative, neutral, or positive.
-
-## 5. Machine Learning Model:
-
-We implemented a Machine Learning model to generate game recommendations, utilizing algorithms and techniques such as cosine similarity and Scikit-Learn. The aim is to provide personalized and accurate recommendations based on the tastes and preferences of each user. If it's an item-item recommendation system:
-
-- **recomendacion_juego (Product ID):** By entering the product ID ('id), we should receive a list of 5 recommended games similar to the input.
-
-  Example of usage: `70`
-
-If it's a user-item recommendation system:
-
-- **recomendacion_usuario (User ID):** By entering the user ID ('user_id'), we should receive a list of 5 recommended games for that user.
-
-  Example of usage: `76561198030567998`
-
-The tool used was Scikit-Learn with libraries such as TfidfVectorizer, linear_kernel, cosine_similarity. These functionalities are also accessible in the API.
 ## Why Cosine Similarity?
 
 We chose to use cosine similarity because it is a commonly used measure to assess the similarity between two vectors in a multidimensional space. In the context of recommendation systems and data analysis, cosine similarity is employed to determine how similar two datasets or elements are. It is calculated using the cosine of the angle between the vectors representing these data or elements.

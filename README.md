@@ -85,7 +85,7 @@ The choice of cosine similarity in our Machine Learning model enables us to capt
 
 For the deployment of the API, we were assigned the Render platform, a unified cloud for creating and running applications and websites, allowing for automatic deployment from GitHub.
 
-We created a new service on render.com, connected to this repository. However, a challenge encountered during deployment was that the free version of this platform only provides 512 MB of memory. Given that our API in local development with its complete datasets exceeded this limit, it was not feasible to deploy it in its original form. As a solution, we had to remove the second user-item recommendation system, reduce the size of the data, and compress it into gzip files.
+We created a new service on render.com, connected to this repository. However, a challenge encountered during deployment was that the free version of this platform only provides 512 MB of memory. Given that our API in local development with its complete datasets exceeded this limit, it was not feasible to deploy it in its original form. As a solution, we had to remove the second user-item recommendation system, reduce the size of the data, and compress it into gz files.
 
 Finally, the lightweight version of the API is running at https://project-10-mlops.onrender.com.
 
@@ -111,7 +111,7 @@ To utilize the API locally and enjoy 100% of the data, including the user-item r
 
 # Video
 
-In this video, we will provide a brief explanation of the project, showcasing the functionality of the API.
+[In this video](https://www.loom.com/share/bfe41b0ca0f84d739190d47b8406907d?sid=54b51f7d-59ae-40b2-8df9-5d66587f9ce7), we will provide a brief explanation of the project, showcasing the functionality of the API.
 
 # Conclusion:
 
